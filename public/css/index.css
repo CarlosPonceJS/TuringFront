@@ -1,0 +1,146 @@
+body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--blueBackground);
+      color: var(--grayText);
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background-color: var(--purpleTextBox);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-logo img {
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a,
+    .nav-buttons button {
+      background: none;
+      border: none;
+      color: var(--whiteHeadline);
+      font-size: 1em;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    /* Section Styling */
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-text {
+      flex: 1 1 400px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .section-text h2 {
+      color: var(--whiteHeadline);
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .section-text p {
+      color: var(--grayText);
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+
+    .section-image {
+      flex: 1 1 400px;
+    }
+
+    .section-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .reverse {
+        flex-direction: column;
+      }
+
+      .section-text {
+        text-align: center;
+      }
+
+      .nav-links,
+      .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* Dropdown menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: var(--purpleTextBox);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      flex-direction: column;
+    }
+
+    .dropdown-content button {
+      width: 100%;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+    footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--purpleTextBox);
+  color: var(--whiteHeadline);
+}

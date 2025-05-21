@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Page</title>
+  <style>
+    :root {
+      --blueBackground: #2b2738;
+      --whiteHeadline: #fcf9fe;
+      --grayText: #9a94a8;
+      --purpleButton: #6e56b7;
+      --purpleTextBox: #3b364b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: var(--purpleTextBox);
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: var(--blueBackground);
+      color: var(--whiteHeadline);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .admin-name {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-link {
+      color: var(--grayText);
+      font-size: 1.1em;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: var(--purpleButton);
+      color: var(--whiteHeadline);
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 40px;
+      color: var(--whiteHeadline);
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="admin-name">Admin Name</div>
+    <a href="#" class="nav-link" onclick="navigate('users')">Users</a>
+    <a href="#" class="nav-link" onclick="navigate('books')">Books</a>
+    <a href="#" class="nav-link" onclick="logOut()">Log out</a>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <h1>Welcome, Admin</h1>
+    <p>Select an option from the sidebar.</p>
+  </div>
+
+  <script>
+    function navigate(section) {
+      const content = document.getElementById("mainContent");
+      if (section === "users") {
+        content.innerHTML = "<h1>Users</h1><p>Manage your users here.</p>";
+      } else if (section === "books") {
+        content.innerHTML = "<h1>Books</h1><p>Manage your books here.</p>";
+      }
+    }
+
+    const logOut = ()=> {
+      localStorage.removeItem("authToken");
+      location.href = "logIn.html";
+    }
+  </script>
+</body>
+</html>

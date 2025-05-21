@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign Up</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/colorPallete.css">
+  <link rel="stylesheet" href="./css/logIn.css" />
 
   <!-- Bootstrap CSS -->
   <link
@@ -31,16 +32,16 @@
           <p style="color: var(--grayText); margin-bottom: 60px;">Already have an account? <a style="color: var(--purpleButton);" href="./logIn.html">Log in here</a></p>
            <form>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Username" required>
+              <input type="text" id="username" class="form-control" placeholder="Username" required>
             </div>
             <div class="mb-3">
-              <input type="email" class="form-control"  placeholder="Email" required>
+              <input type="email" id="email" class="form-control"  placeholder="Email" required>
             </div>
             <div class="mb-3">
-              <input type="password" class="form-control" placeholder="Password" required>
+              <input type="password" id="password" class="form-control" placeholder="Password" required>
             </div>
             <div class="d-grid mb-3">
-              <button type="submit" class="btn btn-primary">Create account</button>
+              <button type="submit" id="btnRegister" class="btn btn-primary">Create account</button>
             </div>
           </form>
         </div>
@@ -48,4 +49,6 @@
     </div>
   </div>
 </body>
+
+<script src="./js/register.js"></script>
 </html>

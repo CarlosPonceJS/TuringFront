@@ -1,0 +1,19 @@
+
+    body {
+      background-color: var(--blueBackground);
+      color: var(--whiteHeadline);
+    }
+    .card {
+      background-color: var(--purpleTextBox);
+      color: var(--whiteHeadline);
+    }
+    .read-btn {
+      background-color: var(--purpleButton);
+      border: none;
+      color: white;
+    }
+    .pagination .page-link {
+      background-color: var(--purpleTextBox);
+      color: var(--whiteHeadline);
+      border: none;
+    }
