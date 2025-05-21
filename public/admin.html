@@ -4,91 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Page</title>
-  <style>
-    :root {
-      --blueBackground: #2b2738;
-      --whiteHeadline: #fcf9fe;
-      --grayText: #9a94a8;
-      --purpleButton: #6e56b7;
-      --purpleTextBox: #3b364b;
-    }
+  <link rel="stylesheet" href="./css/admin.css">
+  <link rel="stylesheet" href="./css/colorPallete.css">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      display: flex;
-      height: 100vh;
-      background-color: var(--purpleTextBox);
-    }
-
-    .sidebar {
-      width: 250px;
-      background-color: var(--blueBackground);
-      color: var(--whiteHeadline);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .admin-name {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-
-    .nav-link {
-      color: var(--grayText);
-      font-size: 1.1em;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-
-    .nav-link:hover {
-      background-color: var(--purpleButton);
-      color: var(--whiteHeadline);
-    }
-
-    .main-content {
-      flex-grow: 1;
-      padding: 40px;
-      color: var(--whiteHeadline);
-    }
-  </style>
 </head>
 <body>
   <div class="sidebar">
-    <div class="admin-name">Admin Name</div>
     <a href="#" class="nav-link" onclick="navigate('users')">Users</a>
     <a href="#" class="nav-link" onclick="navigate('books')">Books</a>
     <a href="#" class="nav-link" onclick="logOut()">Log out</a>
   </div>
 
   <div class="main-content" id="mainContent">
-    <h1>Welcome, Admin</h1>
     <p>Select an option from the sidebar.</p>
   </div>
 
-  <script>
-    function navigate(section) {
-      const content = document.getElementById("mainContent");
-      if (section === "users") {
-        content.innerHTML = "<h1>Users</h1><p>Manage your users here.</p>";
-      } else if (section === "books") {
-        content.innerHTML = "<h1>Books</h1><p>Manage your books here.</p>";
-      }
-    }
+  <!-- Edit User Modal -->
+<div id="editUserModal" class="modal" style="display:none;">
+  <div class="modal-content" style="background-color: var(--blueBackground); color: var(--whiteHeadline); padding: 20px; border-radius: 10px; max-width: 500px; margin: 100px auto;">
+    <h2>Edit User</h2>
+    <form id="editUserForm">
+      <input type="hidden" id="editUserId">
+      <div style="margin-bottom: 10px;">
+        <label>Name:</label><br>
+        <input type="text" id="editUserName" class="form-control" style="background-color: var(--purpleTextBox); color: var(--whiteHeadline); border: none;">
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label>Email:</label><br>
+        <input type="email" id="editUserEmail" class="form-control" style="background-color: var(--purpleTextBox); color: var(--whiteHeadline); border: none;">
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label>Password:</label><br>
+        <input type="password" id="editUserPassword" class="form-control" style="background-color: var(--purpleTextBox); color: var(--whiteHeadline); border: none;">
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label>Role:</label><br>
+        <input type="text" id="editUserRole" class="form-control" style="background-color: var(--purpleTextBox); color: var(--whiteHeadline); border: none;">
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn" style="background-color: var(--purpleButton); color: white; margin-right: 10px;" onclick="saveUser()">Save</button>
+        <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-    const logOut = ()=> {
-      localStorage.removeItem("authToken");
-      location.href = "logIn.html";
-    }
-  </script>
+<!-- Book Modal (Add/Edit) -->
+<div id="editBookModal" style="display: none;" class="modal">
+  <div class="modal-content">
+    <span onclick="closeBookModal()" class="close">&times;</span>
+    <h2 id="bookModalTitle">Edit Book</h2>
+
+    <input type="hidden" id="editBookId">
+
+    <label for="editBookTitle">Title</label>
+    <input type="text" id="editBookTitle" placeholder="Enter title" />
+
+    <label for="editBookAuthor">Author</label>
+    <input type="text" id="editBookAuthor" placeholder="Enter author" />
+
+    <label for="editBookImage">Image URL</label>
+    <input type="text" id="editBookImage" placeholder="Enter image URL" />
+
+    <button onclick="saveBook()" class="btn-custom btn-save">Save</button>
+  </div>
+</div>
+
+
+
+
+
+
+  <script src="./js/admin.js"> 
+</script>
 </body>
 </html>

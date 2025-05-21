@@ -20,8 +20,9 @@ const Register = async () => {
       })
     });
 
+    const data = await response.text(); 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`Error:${data}`);
     }
 
     alert("User Created succesfully");
@@ -29,7 +30,7 @@ const Register = async () => {
 
   } catch (error) {
     console.error("Error:", error);
-    alert("Register failed. Username or email already exists.");
+    alert(error.message);
   }
 };
 

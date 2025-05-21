@@ -22,5 +22,6 @@ const navButtons = document.getElementById("navButtons");
 
     const logOut = ()=> {
       localStorage.removeItem("authToken");
+      localStorage.removeItem("user_id");
       location.href = "logIn.html";
     }

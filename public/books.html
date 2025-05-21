@@ -21,7 +21,7 @@
       <div class="nav-links">
         <a href="./index.html" class="text-white me-3">Home</a>
         <a href="./readedBooks.html" class="text-white me-3">Readed Books</a>
-        <button onclick="logOut()" class="text-white">Logout</button>
+        <button onclick="logOut()" style="background-color: transparent; border: none;"  class="text-white">Logout</button>
       </div>
     </div>
   </nav>
@@ -32,58 +32,12 @@
       <!-- Cards inserted dynamically -->
     </div>
 
-    <!-- Pagination -->
-    <nav aria-label="Page navigation" class="mt-4">
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
   <!-- Footer -->
   <footer class="text-center mt-5 p-4" style="color: var(--grayText);">
     &copy; 2025 BookTrack. All rights reserved.
   </footer>
 
-  <script>
-    const logOut = ()=> {
-      localStorage.removeItem("authToken");
-      location.href = "logIn.html";
-    }
-    const books = [
-      { image: 'https://source.unsplash.com/200x300/?book1', name: 'Book One', author: 'Author A' },
-      { image: 'https://source.unsplash.com/200x300/?book2', name: 'Book Two', author: 'Author B' },
-      { image: 'https://source.unsplash.com/200x300/?book3', name: 'Book Three', author: 'Author C' },
-    ];
-
-    const container = document.getElementById('bookCards');
-
-    books.forEach(book => {
-      const col = document.createElement('div');
-      col.className = 'col-md-4 mb-4';
-
-      col.innerHTML = `
-        <div class="card h-100">
-          <img src="${book.image}" class="card-img-top" alt="${book.name}">
-          <div class="card-body">
-            <h5 class="card-title">${book.name}</h5>
-            <p class="card-text">by ${book.author}</p>
-            <button class="btn read-btn">Mark as Read</button>
-          </div>
-        </div>
-      `;
-
-      container.appendChild(col);
-    });
-  </script>
+  <script src="./js/books.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

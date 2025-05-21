@@ -23,6 +23,11 @@ const LogIn = async () => {
 
     const data = await response.json();
 
+    //SAVING THE ID
+    if(data.user_id){
+      localStorage.setItem("user_id",data.user_id)
+    }
+
     //SAVING THE JWT
     if (data.token) {
       localStorage.setItem("authToken", data.token);
